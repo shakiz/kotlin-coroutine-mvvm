@@ -2,6 +2,7 @@ package com.example.kotlin_coroutine_mvvm.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.kotlin_coroutine_mvvm.R
 import com.example.kotlin_coroutine_mvvm.databinding.ActivityMovieListBinding
@@ -28,6 +29,15 @@ class MovieListActivity : AppCompatActivity() {
     private fun initObserver() {
         viewModel.movieList.observe(this){
 
+        }
+
+        viewModel.loading.observe(this){
+            isLoading ->
+            if(isLoading) {
+                binding.progressDialog.visibility = View.VISIBLE
+            } else {
+                binding.progressDialog.visibility = View.GONE
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ import retrofit2.http.GET
 interface RetrofitService {
 
     @GET("movielist.json")
-    fun fetchAllMovie() : List<Movie>
+    suspend fun fetchAllMovie() : List<Movie>
 
     companion object{
         var retrofitService : RetrofitService? = null

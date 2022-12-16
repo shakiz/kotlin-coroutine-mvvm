@@ -4,7 +4,7 @@ import com.example.kotlin_coroutine_mvvm.data.datasource.MovieApi
 import com.example.kotlin_coroutine_mvvm.data.model.Movie
 
 class MovieRepositoryImpl(private val movieApi: MovieApi) : MovieRepository {
-    override fun fetchMovieList(): List<Movie> {
+    override suspend fun fetchMovieList(): List<Movie> {
         return movieApi.fetchMovieList()
     }
 }

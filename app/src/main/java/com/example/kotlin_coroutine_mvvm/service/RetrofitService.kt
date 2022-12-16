@@ -1,9 +1,15 @@
 package com.example.kotlin_coroutine_mvvm.service
 
+import com.example.kotlin_coroutine_mvvm.data.model.Movie
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
 
 interface RetrofitService {
+
+    @GET("movielist.json")
+    fun fetchAllMovie() : List<Movie>
+
     companion object{
         var retrofitService : RetrofitService? = null
         fun getInstance() : RetrofitService{

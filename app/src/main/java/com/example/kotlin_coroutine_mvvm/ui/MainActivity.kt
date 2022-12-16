@@ -1,7 +1,8 @@
-package com.example.kotlin_coroutine_mvvm
+package com.example.kotlin_coroutine_mvvm.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kotlin_coroutine_mvvm.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,12 +1,12 @@
 package com.example.kotlin_coroutine_mvvm.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.kotlin_coroutine_mvvm.R
 import com.example.kotlin_coroutine_mvvm.adapter.MovieAdapter
 import com.example.kotlin_coroutine_mvvm.data.datasource.MovieApi
+import com.example.kotlin_coroutine_mvvm.data.repository.MovieRepositoryImpl
 import com.example.kotlin_coroutine_mvvm.databinding.ActivityMovieListBinding
 import com.example.kotlin_coroutine_mvvm.service.RetrofitService
 
@@ -29,9 +29,11 @@ class MovieListActivity : AppCompatActivity() {
     }
 
     private fun initObjects() {
-        viewModel = ViewModelProvider(this)[MovieViewModel::class.java]
-        val retrofit = RetrofitService.getInstance()
-        val movieApi = MovieApi(retrofit)
+        val retrofitService = RetrofitService.getInstance()
+        viewModel = ViewModelProvider(
+            this,
+            MyViewModelFactory(MovieRepositoryImpl(MovieApi(retrofitService)))
+        )[MovieViewModel::class.java]
     }
 
     private fun setAdapter(){

@@ -5,6 +5,7 @@ import com.example.kotlin_coroutine_mvvm.service.RetrofitService
 
 class MovieApi(private val retrofitService: RetrofitService) {
     suspend fun fetchMovieList(): List<Movie> {
-        return retrofitService.fetchAllMovie()
+        val response = retrofitService.fetchAllMovie()
+        return response.body()!!
     }
 }

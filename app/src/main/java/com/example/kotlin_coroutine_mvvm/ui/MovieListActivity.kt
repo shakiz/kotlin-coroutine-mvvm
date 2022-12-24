@@ -40,7 +40,6 @@ class MovieListActivity : AppCompatActivity() {
     }
 
     private fun setAdapter(){
-        binding.rvMovie.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         binding.rvMovie.adapter = movieAdapter
     }
 

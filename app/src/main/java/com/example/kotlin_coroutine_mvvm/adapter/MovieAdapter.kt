@@ -18,7 +18,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieViewHolder>() {
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movieList[position]
-        holder.binding.movieName.text = movie.name
+        holder.binding.movieName.text = movie.name.trim()
     }
 
     override fun getItemCount(): Int {

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kotlin_coroutine_mvvm.data.model.Movie
 import com.example.kotlin_coroutine_mvvm.data.repository.MovieRepository
+import com.example.kotlin_coroutine_mvvm.network.NetworkState
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
@@ -21,7 +22,9 @@ class MovieViewModel(private val movieRepository: MovieRepository) : ViewModel()
     fun fetchAllMovieList(){
         viewModelScope.launch {
             Log.d("Thread Inside", Thread.currentThread().name)
-            movieRepository.fetchMovieList()
+            val response = movieRepository.fetchMovieList()
+            loading.value = false
+            movieList.postValue(response)
         }
     }
 

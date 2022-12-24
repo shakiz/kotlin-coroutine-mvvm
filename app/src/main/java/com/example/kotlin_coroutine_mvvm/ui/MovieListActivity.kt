@@ -2,8 +2,11 @@ package com.example.kotlin_coroutine_mvvm.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_coroutine_mvvm.adapter.MovieAdapter
 import com.example.kotlin_coroutine_mvvm.data.datasource.MovieApi
 import com.example.kotlin_coroutine_mvvm.data.repository.MovieRepositoryImpl
@@ -37,6 +40,7 @@ class MovieListActivity : AppCompatActivity() {
     }
 
     private fun setAdapter(){
+        binding.rvMovie.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         binding.rvMovie.adapter = movieAdapter
     }
 

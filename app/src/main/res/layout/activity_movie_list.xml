@@ -6,6 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="12dp"
         tools:context=".ui.MovieListActivity">
 
         <ProgressBar
@@ -27,7 +28,8 @@
             app:layout_constraintTop_toTopOf="parent"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/adapter_recycler_item_movie" />
+            tools:listitem="@layout/adapter_recycler_item_movie"
+            tools:itemCount="3"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

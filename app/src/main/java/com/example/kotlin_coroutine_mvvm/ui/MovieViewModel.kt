@@ -16,7 +16,7 @@ class MovieViewModel(private val movieRepository: MovieRepository) : ViewModel()
     val loading = MutableLiveData<Boolean>()
 
     private var exceptionHandler = CoroutineExceptionHandler{
-        _, throwable -> onError("")
+        _, throwable -> onError(throwable.message)
     }
 
     fun fetchAllMovieList(){
@@ -28,7 +28,7 @@ class MovieViewModel(private val movieRepository: MovieRepository) : ViewModel()
         }
     }
 
-    private fun onError(message : String){
+    private fun onError(message : String?){
         loading.value = false
     }
 
